@@ -4,42 +4,52 @@
   <meta charset="UTF-8">
   <title>Custom Orders - Zynara Jewels</title>
   <link rel="stylesheet" href="style.css">
+
+  <script>
+    // Check login status
+    if (localStorage.getItem("loggedIn") !== "true") {
+      alert("Please login to place a custom order.");
+      window.location.href = "login.html";
+    }
+  </script>
 </head>
 <body>
-  <!-- Header -->
   <header class="header">
-    <img src="images/zyn-logo.png" alt="Zynara Jewels Logo" class="logo">
+    <img src="images/zyn.jpeg" alt="Zynara Jewels Logo" class="logo">
     <nav>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="collection.html">Collection</a></li>
         <li><a href="custom-order.html">Custom Orders</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><button onclick="logout()" class="logout-btn">Logout</button></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Custom Orders Section -->
-  <section class="custom-orders">
-    <h1>Request a Custom Design</h1>
-    <p>Have a unique jewelry idea? Fill out the form below and we’ll bring it to life.</p>
+  <section class="form-section">
+    <h2>Custom Jewelry Order</h2>
+    <p>Have a design in mind? Tell us what you’d love us to create!</p>
 
-    <form action="#" method="post" class="custom-form">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <input type="text" name="type" placeholder="Type of Jewelry (e.g. ring, necklace)" required>
-      <textarea name="details" placeholder="Describe your custom request" required></textarea>
+    <form>
+      <input type="text" placeholder="Jewelry Type (e.g., ring, necklace)" required>
+      <textarea placeholder="Describe your custom design..." required></textarea>
+      <input type="text" placeholder="Your Full Name" required>
+      <input type="tel" placeholder="Phone or WhatsApp Number" required>
       <button type="submit">Submit Request</button>
     </form>
-
-    <div class="note">
-      <p><strong>Note:</strong> We'll get back to you via email or Instagram DMs within 24 hours.</p>
-    </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
-    <p>© 2025 Zynara Jewels. All rights reserved.</p>
+    <p>© 2025 Zynara Jewels. Made with ♥ in Kerala.</p>
   </footer>
+
+  <script>
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      alert("You have been logged out.");
+      window.location.href = "index.html";
+    }
+  </script>
 </body>
 </html>
