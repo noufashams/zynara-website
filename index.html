@@ -4,6 +4,23 @@
   <meta charset="UTF-8">
   <title>Zynara Jewels - Home</title>
   <link rel="stylesheet" href="style.css">
+  <script>
+    // Show/hide login/signup/logout based on login status
+    function handleAuthButtons() {
+      const isLoggedIn = localStorage.getItem("loggedIn") === "true";
+      document.getElementById("auth-links").innerHTML = isLoggedIn
+        ? '<button onclick="logout()" class="logout-btn">Logout</button>'
+        : '<a href="login.html">Login</a> | <a href="signup.html">Signup</a>';
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      alert("Logged out successfully.");
+      window.location.reload();
+    }
+
+    window.onload = handleAuthButtons;
+  </script>
 </head>
 <body>
   <!-- Header -->
@@ -16,6 +33,7 @@
         <li><a href="custom-order.html">Custom Orders</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+      <div id="auth-links" class="auth-links"></div>
     </nav>
   </header>
 
@@ -44,13 +62,11 @@
         <h3>Elegant Ring</h3>
         <p>₹1,999</p>
       </div>
-
       <div class="product-card">
         <img src="images/necklace1.jpg" alt="Necklace">
         <h3>Necklace Set</h3>
         <p>₹3,499</p>
       </div>
-
       <div class="product-card">
         <img src="images/anklet1.jpg" alt="Anklet">
         <h3>Delicate Anklet</h3>
