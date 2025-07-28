@@ -1,0 +1,47 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Zynara Jewels</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <img src="images/zyn.jpeg" alt="Zynara Jewels Logo" class="logo">
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="signup.html">Signup</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="form-section">
+    <h2>Login to Continue</h2>
+    <form id="loginForm">
+      <input type="email" placeholder="Email" id="email" required>
+      <input type="password" placeholder="Password" id="password" required>
+      <button type="submit">Login</button>
+    </form>
+  </section>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const user = JSON.parse(localStorage.getItem("zynUser"));
+      const enteredEmail = document.getElementById("email").value;
+      const enteredPassword = document.getElementById("password").value;
+
+      if (user && user.email === enteredEmail && user.password === enteredPassword) {
+        localStorage.setItem("loggedIn", "true");
+        alert("Login successful!");
+        window.location.href = "custom-order.html";
+      } else {
+        alert("Invalid credentials.");
+      }
+    });
+  </script>
+</body>
+</html>
